@@ -1,87 +1,141 @@
 import React from "react";
-import { FiInstagram, FiLinkedin, FiTwitter, FiYoutube } from "react-icons/fi";
-import logo from "../assets/logo.svg"; // your logo
+import {
+  FiInstagram,
+  FiLinkedin,
+  FiTwitter,
+  FiYoutube,
+  FiArrowUp,
+  FiMail,
+} from "react-icons/fi";
+import logo from "../assets/logo.svg";
 
 const Footer = () => {
+  const year = new Date().getFullYear();
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <footer className="footer">
-      <div className="footer-top">
-        {/* Left section */}
-        <div className="footer-brand">
-          <div className="brand-row">
-            <img src={logo} alt="Let's Unite" />
-            <div>
-              <h4>Let’s Unite</h4>
-              <span>One World One Family</span>
+      <div className="footer-card">
+        {/* ================= TOP ================= */}
+        <div className="footer-top">
+          {/* BRAND */}
+          <div className="footer-brand">
+            <div className="brand-row">
+              <img src={logo} alt="Let’s Unite" />
+              <div>
+                <h4>Let’s Unite</h4>
+                <span>One World · One Family</span>
+              </div>
+            </div>
+
+            <h2>
+              Let’s <span className="green-txt">Connect</span> &{" "}
+              <span className="orange">Build</span> Careers Together
+            </h2>
+
+            <p>
+              Discover jobs, hiring insights, and career growth opportunities
+              curated by industry experts.
+            </p>
+
+            {/* Social */}
+            <div className="social-icons">
+              <a href="#" aria-label="Instagram">
+                <FiInstagram />
+              </a>
+              <a href="#" aria-label="LinkedIn">
+                <FiLinkedin />
+              </a>
+              <a href="#" aria-label="Twitter">
+                <FiTwitter />
+              </a>
+              <a href="#" aria-label="YouTube">
+                <FiYoutube />
+              </a>
             </div>
           </div>
 
-          <h2>
-            Let’s <span className="green">Connect</span> And{" "}
-            <span className="orange">Build</span> Together.
-          </h2>
+          {/* LINKS */}
+          <div className="footer-links">
+            <div className="footer-col">
+              <h5>Navigation</h5>
+              <ul>
+                <li>
+                  <a href="#">Home</a>
+                </li>
+                <li>
+                  <a href="#">Careers</a>
+                </li>
+                <li>
+                  <a href="#">Testimonials</a>
+                </li>
+                <li>
+                  <a href="#">FAQ</a>
+                </li>
+                <li>
+                  <a href="#">Contact</a>
+                </li>
+              </ul>
+            </div>
 
-          <p>
-            Follow us on social media to never miss a job opportunity, career
-            insights, and expert hiring tips.
-          </p>
-
-          <div className="social-icons">
-            <FiInstagram />
-            <FiLinkedin />
-            <FiTwitter />
-            <FiYoutube />
+            <div className="footer-col">
+              <h5>Contact</h5>
+              <ul>
+                <li>
+                  <a href="tel:+02245158999">+91 2245 158 999</a>
+                </li>
+                <li>
+                  <a href="mailto:info@letsunite.in">info@letsunite.in</a>
+                </li>
+                <li>Mumbai · Delhi · Chennai · Pune</li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        {/* Right section */}
-        <div className="footer-links">
-          <div className="footer-col">
-            <h5>Navigation</h5>
-            <ul>
-              <li>Home</li>
-              <li>Careers</li>
-              <li>Testimonials</li>
-              <li>FAQ</li>
-              <li>Contact</li>
-            </ul>
-          </div>
+        {/* ================= BOTTOM ================= */}
+        <div className="footer-bottom">
+          <span>© {year} Let’s Unite. All rights reserved.</span>
 
-          <div className="footer-col">
-            <h5>Our address</h5>
-            <ul>
-              <li>+02245158999</li>
-              <li>info@letsunite.in</li>
-              <li>Mumbai | Delhi | Chennai | Ahmedabad | Pune</li>
-            </ul>
-          </div>
+          <button
+            className="scroll-top"
+            onClick={scrollToTop}
+            aria-label="Scroll to top"
+          >
+            <FiArrowUp />
+          </button>
         </div>
       </div>
 
-      {/* Bottom */}
-      <div className="footer-bottom">
-        © Copyrights 2025 Let’s Unite. All rights reserved.
-      </div>
-
-      <style>
-        {`
-        /* ================= FOOTER ================= */
+      {/* ================= STYLES ================= */}
+      <style>{`
+/* ================= FOOTER ================= */
 .footer {
-  padding: 100px 20px 40px;
+  padding: 120px 20px 40px;
   background: #ffffff;
-  color: #111827;
 }
 
-/* Top layout */
-.footer-top {
+.footer-card {
   max-width: 1200px;
-  margin: 0 auto 60px;
+  margin: 0 auto;
+  padding: 70px 60px 40px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #1c1c1c, #222 55%, #2b2455);
+  color: #ffffff;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.25);
+}
+
+/* ================= TOP ================= */
+.footer-top {
   display: flex;
   justify-content: space-between;
   gap: 80px;
 }
 
-/* Brand section */
+/* BRAND */
 .footer-brand {
   max-width: 520px;
 }
@@ -94,8 +148,7 @@ const Footer = () => {
 }
 
 .brand-row img {
-  width: 44px;
-  height: 44px;
+  width: 46px;
 }
 
 .brand-row h4 {
@@ -105,51 +158,74 @@ const Footer = () => {
 
 .brand-row span {
   font-size: 12px;
-  color: #6b7280;
+  color: #9ca3af;
 }
 
-/* Headline */
 .footer-brand h2 {
-  font-size: 28px;
+  font-size: clamp(22px, 4vw, 30px);
   font-weight: 600;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
-.green {
-  color: #7a8f2a;
-}
+.green-txt { color: #8bc34a; }
+.orange { color: #f59e0b; }
 
-.orange {
-  color: #c46a1c;
-}
-
-/* Description */
 .footer-brand p {
   font-size: 14px;
   line-height: 1.7;
-  color: #6b7280;
-  margin-bottom: 18px;
+  color: #d1d5db;
+  margin-bottom: 24px;
 }
 
-/* Social icons */
+/* NEWSLETTER */
+.newsletter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.08);
+  padding: 8px;
+  border-radius: 999px;
+  margin-bottom: 24px;
+}
+
+.newsletter input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+}
+
+.newsletter button {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg,#8bc34a,#f59e0b);
+  color: #111;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* SOCIAL */
 .social-icons {
   display: flex;
   gap: 14px;
   font-size: 18px;
-  color: #111827;
 }
 
-.social-icons svg {
-  cursor: pointer;
-  transition: color 0.25s ease, transform 0.25s ease;
+.social-icons a {
+  color: #ffffff;
+  transition: transform 0.25s ease, color 0.25s ease;
 }
 
-.social-icons svg:hover {
-  color: #7a8f2a;
-  transform: translateY(-2px);
+.social-icons a:hover {
+  color: #8bc34a;
+  transform: translateY(-3px);
 }
 
-/* Right columns */
+/* LINKS */
 .footer-links {
   display: flex;
   gap: 80px;
@@ -167,16 +243,44 @@ const Footer = () => {
 }
 
 .footer-col li {
+  margin-bottom: 10px;
   font-size: 14px;
-  color: #6b7280;
-  margin-bottom: 8px;
 }
 
-/* Bottom */
+.footer-col a {
+  color: #d1d5db;
+  text-decoration: none;
+}
+
+.footer-col a:hover {
+  color: #8bc34a;
+}
+
+/* ================= BOTTOM ================= */
 .footer-bottom {
-  text-align: center;
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 13px;
-  color: #6b7280;
+  color: #9ca3af;
+}
+
+.scroll-top {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.15);
+  color: #ffffff;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.scroll-top:hover {
+  transform: translateY(-3px);
 }
 
 /* ================= RESPONSIVE ================= */
@@ -187,22 +291,26 @@ const Footer = () => {
   }
 
   .footer-links {
-    gap: 60px;
+    gap: 50px;
   }
 }
 
 @media (max-width: 600px) {
+  .footer-card {
+    padding: 50px 24px 30px;
+  }
+
   .footer-links {
     flex-direction: column;
     gap: 40px;
   }
 
-  .footer-brand h2 {
-    font-size: 22px;
+  .footer-bottom {
+    flex-direction: column;
+    gap: 16px;
   }
 }
-`}
-      </style>
+      `}</style>
     </footer>
   );
 };
