@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./style.css";
 import bgline from "../assets/bgline.svg";
 import { FiPlus, FiMinus } from "react-icons/fi";
-import workbg from "../assets/workbg.svg";
+import workbg from "../assets/workbg.png";
 import logo from "../assets/logo.svg";
 import earth from "../assets/earth.png";
 import bannerimg from "../assets/banner.png";
@@ -102,7 +102,7 @@ const Home = () => {
   return (
     <div className="page-wrapper">
       {/* ================= HERO ================= */}
-      <section className="hero">
+      <section className="hero" id="home">
         {/* Hero background (LEFT) */}
         <img src={bgline} alt="" className="hero-bg" />
 
@@ -205,7 +205,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="jobseekers">
+      <section className="jobseekers" id="career">
         <div className="jobseekers-header">
           <span className="eyebrow">For Job Seekers</span>
 
@@ -227,7 +227,7 @@ const Home = () => {
             icon={<FiFileText />}
             title="Freight Operations & Documentation"
             count="68 Jobs Available"
-            variant="blue"
+            variant="service-blue"
           />
           <JobCard
             icon={<FiTrendingUp />}
@@ -251,7 +251,7 @@ const Home = () => {
             icon={<FiHome />}
             title="Warehouse & Inventory Management"
             count="65 Jobs Available"
-            variant="violet"
+            variant="service-violet"
           />
           <JobCard
             icon={<FiBox />}
@@ -298,7 +298,6 @@ const Home = () => {
             icon={<FiUploadCloud />}
             title="Upload CV / Resume"
             text="Upload your resume so we can match you with relevant roles."
-            active
           />
 
           <Connector />
@@ -358,7 +357,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="industries">
+      <section className="industries" id="industries">
         {/* Decorative background */}
         <img src={bgline} alt="" className="industry-bg" />
 
@@ -414,7 +413,7 @@ const Home = () => {
           />
         </div>
       </section>
-      <section className="testimonials">
+      <section className="testimonials" id="testimonials">
         {/* Header */}
 
         {/* Globe */}
@@ -447,7 +446,7 @@ const Home = () => {
           understand the pulse of freight and supply chain operations.
         </p>
       </section>
-      <section className="faq-section">
+      <section className="faq-section" id="faq">
         {/* Decorative background */}
         <img src={bgline} alt="" className="faq-bg" />
 
@@ -554,6 +553,8 @@ const Home = () => {
   padding: 12px 28px;
   border-radius: 999px;
   border: none;
+    font-family: "Overlock", sans-serif;
+
   background: linear-gradient(135deg, #64a057, #849223, #9e5516);
   color: #fff;
   font-weight: 600;
@@ -608,6 +609,8 @@ const Home = () => {
   background: linear-gradient(135deg, #64a057, #849223, #9e5516);
   color: #fff;
   font-weight: 600;
+    font-family: "Overlock", sans-serif;
+
   cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
@@ -982,10 +985,10 @@ const Home = () => {
 }
 
 /* ================= VARIANTS ================= */
-.blue {
+.service-blue {
   border-color: #cfe0ff;
 }
-.blue .job-icon {
+.service-blue .job-icon {
   background: linear-gradient(135deg, #4f8cff, #7aa8ff);
 }
 
@@ -1010,10 +1013,10 @@ const Home = () => {
   background: linear-gradient(135deg, #e879f9, #f0abfc);
 }
 
-.violet {
+.service-violet {
   border-color: #ddd6fe;
 }
-.violet .job-icon {
+.service-violet .job-icon {
   background: linear-gradient(135deg, #7c3aed, #a78bfa);
 }
 
@@ -1317,6 +1320,7 @@ const Home = () => {
 .banner-visual img {
   width: 100%;
   max-width: 520px;
+  z-index: 99;
   height: auto;
   margin-left: -12px;
 }
@@ -1371,6 +1375,7 @@ const Home = () => {
   border-radius: 999px;
   border: none;
   cursor: pointer;
+  font-family: "Overlock", sans-serif;
 
   background: linear-gradient(135deg, #7aa83d, #a96a1f);
   color: #ffffff;
@@ -1858,7 +1863,7 @@ const Home = () => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  font-family: "Overlock", sans-serif;
   font-size: 15px;
   font-weight: 600;
   color: #111827;
@@ -1999,6 +2004,7 @@ const Home = () => {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  font-family: "Overlock", sans-serif;
 
   padding: 14px 34px;
   border-radius: 999px;
