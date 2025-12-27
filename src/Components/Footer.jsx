@@ -4,7 +4,12 @@ import logo from "../assets/logo.svg";
 
 const Footer = () => {
   const year = new Date().getFullYear();
-
+  const handleScrollTo = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <footer className="footer">
       <div className="footer-container">
@@ -49,11 +54,13 @@ const Footer = () => {
           <div className="footer-col">
             <h5>Navigation</h5>
             <ul>
-              <li>Home</li>
-              <li>Careers</li>
-              <li>Testimonials</li>
-              <li>FAQ</li>
-              <li>Contact</li>
+              <li onClick={() => handleScrollTo("home")}>Home</li>
+              <li onClick={() => handleScrollTo("career")}>Careers</li>
+              <li onClick={() => handleScrollTo("industries")}>Industries</li>
+              <li onClick={() => handleScrollTo("testimonials")}>
+                Testimonials
+              </li>
+              <li onClick={() => handleScrollTo("faq")}>FAQ</li>
             </ul>
           </div>
 

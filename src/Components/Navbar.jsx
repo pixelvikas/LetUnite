@@ -10,14 +10,7 @@ const Navbar = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
 
-      const sections = [
-        "home",
-        "career",
-        "industries",
-        "testimonials",
-        "faq",
-        "contact",
-      ];
+      const sections = ["home", "career", "industries", "testimonials", "faq"];
 
       sections.forEach((id) => {
         const el = document.getElementById(id);
@@ -59,7 +52,6 @@ const Navbar = () => {
             ["industries", "Industries"],
             ["testimonials", "Testimonials"],
             ["faq", "FAQ"],
-            ["contact", "Contact"],
           ].map(([id, label]) => (
             <button
               key={id}
@@ -97,7 +89,6 @@ const Navbar = () => {
             ["industries", "Industries"],
             ["testimonials", "Testimonials"],
             ["faq", "FAQ"],
-            ["contact", "Contact"],
           ].map(([id, label]) => (
             <button key={id} onClick={() => handleScrollTo(id)}>
               {label}

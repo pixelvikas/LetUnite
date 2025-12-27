@@ -30,6 +30,8 @@ import {
   FiCheckCircle,
 } from "react-icons/fi";
 import { FiFileText, FiTruck, FiHome, FiBox } from "react-icons/fi";
+import ApplyCard from "../Components/ApplyCard";
+import ContactPanel from "../Components/ContactPanel";
 const Home = () => {
   /* Dummy testimonial data */
 
@@ -85,6 +87,8 @@ const Home = () => {
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const [showApply, setShowApply] = useState(false);
+  const [openContact, setOpenContact] = useState(false);
 
   const toggleFAQ = (index) => {
     setActiveIndex(index === activeIndex ? -1 : index);
@@ -121,7 +125,9 @@ const Home = () => {
             across the global logistics network.
           </p>
 
-          <button className="hero-btn">Apply Now</button>
+          <button className="hero-btn" onClick={() => setShowApply(true)}>
+            Apply Now
+          </button>
           {/* 🔑 MOVED ECOSYSTEM CARD HERE */}
           <div className="ecosystem-wrapper">
             <div className="ecosystem-card">
@@ -481,20 +487,20 @@ const Home = () => {
       <section className="cta-wrapper">
         <div className="cta-card">
           <img src={bgline} alt="" className="banner-bg" />
-
           {/* Decorative wave */}
-
           <h2>Ready To Join The Logistics Industry?</h2>
-
           <p>
             Students | Freshers | Interns | Trained Candidates | Experienced
             Professionals
           </p>
-
-          <button className="cta-btn">Contact Us</button>
+          <button className="cta-btn" onClick={() => setOpenContact(true)}>
+            Contact Us
+          </button>
         </div>
       </section>
 
+      <ApplyCard open={showApply} onClose={() => setShowApply(false)} />
+      <ContactPanel open={openContact} onClose={() => setOpenContact(false)} />
       <style>
         {`
         /* ================= GLOBAL ================= */
